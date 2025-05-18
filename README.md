@@ -2,7 +2,7 @@
 ### **Autori**
 - 241RDC050 Sofija Sočenko
 - 241RDC027 Valērija Kļujeva
-- 241RDC043Artūrs Kaļetkins
+- 241RDC043 Artūrs Kaļetkins
 ### **Piezīmes**
 - Skripts darbojās tikai ar produktiem, kuri atrodami visos veikalos
 - Nepieciešams stabils interneta pieslēgums
