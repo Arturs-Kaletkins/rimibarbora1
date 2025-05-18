@@ -16,3 +16,12 @@ def setup_driver(): #izveido Edge
     return webdriver.Edge(service=service, options=options) #atver Edge parluku
 
 #parluko lapi lidz lejai lidz ta ir pilniba ieladeta
+def pages(driver): #scrollē lapu
+    last = driver.execute_script("return document.body.scrollHeight") #saglabā lapas augstumu
+    while True:
+        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);") #pārvieto lapu uz leju
+        time.sleep(1) #gaida 1 sekundi
+        new = driver.execute_script("return document.body.scrollHeight") #saglabā jauno augstumu
+        if new == last: #ja jaunais augstums ir vienāds ar iepriekšējo augstumu
+            break #beidz scrollēt
+        last = new #saglabā jauno augstumu
