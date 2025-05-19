@@ -5,7 +5,7 @@ from selenium import webdriver #vadības import lai izmantotu selenium
 from selenium.webdriver.edge.service import Service #ļauj izveidot service for Edge
 from selenium.webdriver.common.by import By #importē elementu meklēšanai
 from selenium.webdriver.support.ui import WebDriverWait #gaidīšana kad paradīsies produkts
-from selenium.webdriver.support import expected_conditions as EC #gaidīšana kad produkts ir redzams
+from selenium.webdriver.support import expected_conditions as EC #gaidīšana kad produkts ir redzams būs zēm EC
 from webdriver_manager.microsoft import EdgeChromiumDriverManager #ļauj automātiski lejupielādēt un instalēt Edge WebDriver
 
 #veidojam darbu ar Edge
@@ -73,3 +73,37 @@ def search_rimi(driver, query, keyword=None): #meklē preces rimi
         except:
             continue
     return results
+
+#meklē preces Barbora veikalā
+def search_barbora(driver, query): #meklē preces barbora
+    url = f"https://barbora.lv/meklet?q={query}" #veido URL lai mekletu pec nosaukuma
+    driver.get(url) #atver lapu
+
+    
+    #gaida kad preces ieladēsies
+    try:
+        WebDriverWait(driver, 25).until(
+            EC.presence_of_all_elements_located((By.CSS_SELECTOR, "li[data-testid^='product-card']"))
+        ) #gaida līdz preces ir redzamas
+        items = driver.find_elements(By.CSS_SELECTOR, "li[data-testid^='product-card']") #atrod visas preces
+        
+    except: #ja preces nav atrastas
+        print("Barbora: prece netika atrasta") #izvada kļūdu
+        return [] #izvada tukšo sarakstu
+
+    results = [] #veidosim sarakstu ar precem
+    
+    for item in items: #ņēmam atrastas preces pa vienai 
+        try:
+            name = item.find_element(By.CSS_SELECTOR, "a.tw-break-words").text.strip() #atrod nosaukumu
+            
+            #pārbauda ja nosaukums nav tukšs un name nav atrasts tas nosaukums, tad izlaižam to
+            if query and not re.search(rf"\b{re.escape(query)}\b", name, re.IGNORECASE):
+                continue #izlaižam un turpinam
+                
+            meta = item.find_element(By.CSS_SELECTOR, "meta[itemprop='price']") #atrod kur glabajas cena vietnē
+            price = float(meta.get_attribute("content").replace(",", ".")) #meklejam cenu zem content un rediģējam
+            results.append(("Barbora", name, price)) #izvada rezultātus
+        except:
+            continue #ja precei nav cenas tad turpinam
+    return results #izmanto rezultātus tālāk
