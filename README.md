@@ -11,11 +11,11 @@
 Python skripts, kas salīdzina cenas Rimi un Barbora e-veikalos pie precēm, kas tiek ievadītas terminālī. Programma izvada visu atrasto preču sarakstu un to cenas pieaugošā secībā, un beigās izvada lētāko produktu. 
 ### **Tehnoloģijas**
 	•	Python 3.11+
-	•	Selenium
-	•	WebDriver Manager
-	•	Microsoft Edge WebDriver
-	•	Regex (re)
-	•	Heap (heapq)
+	•	Selenium (atvēr e-veikalu lapas; skrollē un gaida, kamēr visi produkti ielādējas; nolasa datus no lapām)
+	•	WebDriver Manager (automātiski lejupielādē un atjaunina Microsoft Edge draiveri)
+	•	Microsoft Edge WebDriver (nodrošina saikni starp Python kodu un Edge pārlūkprogrammu)
+	•	Regex (re) (meklē tekstā noteiktus vārdus)
+	•	Heap (heapq) (atrod viszemāku vērtību sarakstā)
 ### **Instalācija**
 1. Nokopē projektu:
 > https://github.com/Arturs-Kaletkins/rimibarbora1 
