@@ -1,14 +1,14 @@
-### **Cenu Salīdzināšanas Skripts (Rimi un Barbora)**
+### **Cenu salīdzināšanas skripts (e-veikalos Rimi un Barbora)**
 ### **Autori**
 - 241RDC050 Sofija Sočenko
 - 241RDC027 Valērija Kļujeva
 - 241RDC043 Artūrs Kaļetkins
 ### **Piezīmes**
-- Skripts darbojās tikai ar produktiem, kuri atrodami visos veikalos
-- Nepieciešams stabils interneta pieslēgums
 - Nepieciešams instalēts microsoft edge internetpārlūks
+- Skripts darbojās gan ar precīziem preču nosaukumiem, gan ar vispārējiem nosaukumiem
+- Nepieciešams stabils interneta pieslēgums
 ### Apraksts
-Python skripts, kas salīdzina un izvada lētākās preču cenas Rimi un Barbora e-veikalos.
+Python skripts, kas salīdzina cenas Rimi un Barbora e-veikalos pie precēm, kas tiek ievadītas terminālī. Programma izvada visu atrasto preču sarakstu un to cenas pieaugošā secībā, un beigās izvada lētāko produktu. 
 ### **Tehnoloģijas**
 	•	Python 3.11+
 	•	Selenium
@@ -21,19 +21,19 @@ Python skripts, kas salīdzina un izvada lētākās preču cenas Rimi un Barbora
 > git clone https://github.com/tavs-lietotajvards/cenu-salidzinasana.git
 cd cenu-salidzinasana
 2. Instalē nepieciešamās bibliotēkas
->pip install selenium webdriver-manager
-3. Pārliecinies vai tev ir microdoft edge pārlūks
-> Ja nav - instalē to!
+> pip install selenium 
+> pip install webdriver-manager
+3. Pārliecinies, vai tev ir microdoft edge pārlūks
+> Ja nav - instalē to.
 ### **Lietošana**
-1. Ievadi:
-> python price_comparator.py
-2. Ievadi preces nosaukumu:
-> (piemēram) piens
+Ievadi preces nosaukumu: (ievadiet produktu, piemēram, "baltmaize")
 ### **Funkcionalitāte**
 - Atver Rimi un Barbora e-veikalus
+- Apiet logus "sīkfailu izmantošana"
 - Meklē pēc preces nosaukuma
 - Salīdzina preču cenas
 - Parāda:
-1. Visus atrastos rezultātus (preces)
-2. Lētāko preci un veiklaku, kurā tā ir atrodama
-
+1. Visas atrastas preces un to cenas pieaugošā secībā
+2. Lētāko preci un veikalu, kurā tā ir atrodama
+3. Ja prece netika atrasta, tad izvada paziņojumu "prece netika atrasta"
+4. Ja lētākā cena ir vienāda abos veikalos, tad izvada paziņojumu "cena precei (Jūsu prece) ir vienāda: (cena) € veikalos Rimi, Barbora"
