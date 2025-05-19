@@ -21,8 +21,8 @@ Python skripts, kas salīdzina cenas Rimi un Barbora e-veikalos pie precēm, kas
 > git clone https://github.com/tavs-lietotajvards/cenu-salidzinasana.git
 cd cenu-salidzinasana
 2. Instalē nepieciešamās bibliotēkas
-> pip install selenium 
-> pip install webdriver-manager
+- pip install selenium 
+- pip install webdriver-manager
 3. Pārliecinies, vai tev ir microdoft edge pārlūks
 > Ja nav - instalē to.
 ### **Lietošana**
