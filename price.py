@@ -143,6 +143,6 @@ def cheap(products): #funkcija meklē lētāko preci
     finally:
         driver.quit()
 #ja skripts tiek palaists no komandas rindas tad jautājam nosaukumu
-if _name_ == "_main_":
+if __name__ == "__main__":
     query = input("Ievadiet preces nosaukumu: ")
     cheap(query) #meklē lētāko preci
