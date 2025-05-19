@@ -107,3 +107,23 @@ def search_barbora(driver, query): #meklē preces barbora
         except:
             continue #ja precei nav cenas tad turpinam
     return results #izmanto rezultātus tālāk
+
+#meklē lētāko preci
+def cheap(products): #funkcija meklē lētāko preci
+    driver = setup_driver() #startē brauzeri
+    #izveido meklēšanas vaicājumu
+    try:
+        rimi_results = search_rimi(driver, products, keyword=products) #meklē preces Rimi veikalā
+        barbora_results = search_barbora(driver, products) #meklē preces Barbora veikalā
+
+        all_results = rimi_results + barbora_results #apvieno rezultātus
+        if not all_results: #ja nav atrastas preces tad izvada kļūdu
+            print("Prece netika atrasta nevienā veikalā")
+            return
+
+        heap = [(price, store, name) for store, name, price in all_results] #izveido kaudzi ar rezultātiem lai atri atrastu lētāko
+        heapq.heapify(heap)
+
+        minim = heapq.nsmallest(1, heap)[0][0] #atrod lētāko cenu
+        cheaper = [item for item in heap if item[0] == minim] #atrod lētāko preci
+        stores = set(item[1] for item in cheaper) #izveido veikalu sarakstu kur cena ir vienāda ar minimalo
