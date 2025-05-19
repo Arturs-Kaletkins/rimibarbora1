@@ -18,8 +18,7 @@ Python skripts, kas salīdzina cenas Rimi un Barbora e-veikalos pie precēm, kas
 	•	Heap (heapq)
 ### **Instalācija**
 1. Nokopē projektu:
-> git clone https://github.com/tavs-lietotajvards/cenu-salidzinasana.git
-cd cenu-salidzinasana
+> https://github.com/Arturs-Kaletkins/rimibarbora1 
 2. Instalē nepieciešamās bibliotēkas
 - pip install selenium 
 - pip install webdriver-manager
