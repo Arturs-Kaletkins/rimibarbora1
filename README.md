@@ -28,10 +28,9 @@ Python skripts, kas salīdzina cenas Rimi un Barbora e-veikalos pie precēm, kas
 Ievadi preces nosaukumu: (ievadiet produktu, piemēram, "baltmaize")
 ### **Funkcionalitāte**
 - Atver Rimi un Barbora e-veikalus
-- Apiet logus "sīkfailu izmantošana"
 - Meklē pēc preces nosaukuma
 - Salīdzina preču cenas
-- Parāda:
+- Izvada:
 1. Visas atrastas preces un to cenas pieaugošā secībā
 2. Lētāko preci un veikalu, kurā tā ir atrodama
 3. Ja prece netika atrasta, tad izvada paziņojumu "prece netika atrasta"
