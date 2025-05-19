@@ -127,3 +127,22 @@ def cheap(products): #funkcija meklē lētāko preci
         minim = heapq.nsmallest(1, heap)[0][0] #atrod lētāko cenu
         cheaper = [item for item in heap if item[0] == minim] #atrod lētāko preci
         stores = set(item[1] for item in cheaper) #izveido veikalu sarakstu kur cena ir vienāda ar minimalo
+        #izvada sarakstu ar visām precēm
+        print(f"\nAtrastās preces: {len(all_results)}")
+        for price, store, name in sorted(heap):
+            print(f"{store}: {name} - {price:.2f} €") #izvada rezultātus
+
+        #izvada rezultatu par lētāko cenu vai par to ka ta ir vienāda abos veikalos
+        if len(stores) > 1:
+            print(f"\nCena precei «{products}» ir vienāda: {minim:.2f} € veikalos {', '.join(stores)}")
+        else:
+            cheapest = cheaper[0]
+            print(f"\nVislētākā prece: {cheapest[2]}")
+            print(f"Cena: {cheapest[0]:.2f} € veikalā {cheapest[1]}")
+    #aizver brauzeri
+    finally:
+        driver.quit()
+#ja skripts tiek palaists no komandas rindas tad jautājam nosaukumu
+if _name_ == "_main_":
+    query = input("Ievadiet preces nosaukumu: ")
+    cheap(query) #meklē lētāko preci
